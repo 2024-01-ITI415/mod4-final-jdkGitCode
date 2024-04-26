@@ -25,6 +25,7 @@ public class DoorConsole : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            PlaySound();
             consoleScreen.SetActive(true);
             interactibleText.SetActive(true);
         }
@@ -34,7 +35,6 @@ public class DoorConsole : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            //PlaySound();
             door.SwitchDoorState();
         }
     }

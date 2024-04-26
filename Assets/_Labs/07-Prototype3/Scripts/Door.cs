@@ -7,6 +7,11 @@ public class Door : MonoBehaviour
     public Animator doorAnimator;
     public bool doorState;
 
+    private void Start()
+    {
+        doorState = false;
+    }
+
     public void SwitchDoorState()
     {
         Debug.Log(doorAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime);
