@@ -6,19 +6,45 @@ public class DoorConsole : MonoBehaviour
 {
     public AudioClip audioClip;
     public AudioSource audioSource;
-    public GameObject door;
-    public GameObject onScreen;
-    public bool consoleState;
+
+    public Door door;
+    public GameObject consoleScreen;
+    public GameObject interactibleText;
 
     private void Start()
     {
-        consoleState = false;
-        onScreen.SetActive(false);
-        
+        consoleScreen.SetActive(false);
     }
 
     public void PlaySound()
     {
         audioSource.PlayOneShot(audioClip);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            consoleScreen.SetActive(true);
+            interactibleText.SetActive(true);
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            //PlaySound();
+            door.SwitchDoorState();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            consoleScreen.SetActive(false);
+            interactibleText.SetActive(false);
+        }
     }
 }

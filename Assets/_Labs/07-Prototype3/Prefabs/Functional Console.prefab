@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 7706036695081238257}
   - component: {fileID: 4235042412499336775}
   - component: {fileID: 3247417986870546577}
+  - component: {fileID: 8172893420152696500}
+  - component: {fileID: 3246968303379671730}
   m_Layer: 0
   m_Name: Functional Console
   m_TagString: Untagged
@@ -108,6 +110,44 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 7b79fe2053abba84e856ee9f253da0b5, type: 2}
+--- !u!114 &8172893420152696500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6318037745369776662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38a51f62970b5774881d19fa409ad26c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 0}
+  audioSource: {fileID: 0}
+  door: {fileID: 0}
+  consoleScreen: {fileID: 8894545438535928889}
+  interactibleText: {fileID: 0}
+--- !u!135 &3246968303379671730
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6318037745369776662}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 3
+  m_Center: {x: 0, y: 0.718204, z: 0.020652294}
 --- !u!1 &8894545438535928889
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,7 +168,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8624939407729758930
 Transform:
   m_ObjectHideFlags: 0
