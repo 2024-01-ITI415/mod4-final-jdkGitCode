@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,7 @@ public class EndingSequence : MonoBehaviour
 {
     public GameObject[] endingPyramids = new GameObject[8];
     private int activePyramidCount;
+    private bool gameEnded;
 
     public GameObject glassBreakParticles;
     public GameObject tinyBox;
@@ -36,6 +38,7 @@ public class EndingSequence : MonoBehaviour
 
     void StartEnding()
     {
+        gameEnded = true;
         SetNextPyramidActive();
         audioSource.Play(0);
         backgroundMusic.Pause();
@@ -82,10 +85,12 @@ public class EndingSequence : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Player entered end room");
-
-            if (CollectableTracker.collectableTrackerSingleton.pyramidCount == 8)
+            if (CollectableTracker.collectableTrackerSingleton.pyramidCount == 8 && !gameEnded)
                 StartEnding();
+            else if (gameEnded)
+            {
+                return;
+            }
             else
             {
                 insufficentPyramidsTxt.SetActive(true);
