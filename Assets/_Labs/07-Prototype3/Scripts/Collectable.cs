@@ -31,6 +31,7 @@ public class Collectable : MonoBehaviour
 
     public void FinishPickingUp()
     {
+        CollectableTracker.collectableTrackerSingleton.AddPyramid();
         particles.SetActive(false);
         this.gameObject.SetActive(false);
     }

@@ -23,8 +23,7 @@ public class UndergroundPassage : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             player.GetComponent<CharacterController>().enabled = false;
-            player.transform.position = posToGoTo.position;
-            player.transform.rotation = posToGoTo.rotation;
+            player.transform.SetPositionAndRotation(posToGoTo.position, posToGoTo.rotation);
             player.GetComponent<CharacterController>().enabled = true;
         }
     }
