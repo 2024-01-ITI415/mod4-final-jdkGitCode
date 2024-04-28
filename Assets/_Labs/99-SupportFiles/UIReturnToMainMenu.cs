@@ -7,6 +7,8 @@ public class UIReturnToMainMenu : MonoBehaviour
 {
     public GameObject openingScreen;
     public GameObject returnMenu;
+    public GameObject endingTxt;
+    public GameObject insufficentPyramidsTxt;
     public FirstPersonController playerController;
 
     public void Awake()
@@ -30,15 +32,23 @@ public class UIReturnToMainMenu : MonoBehaviour
         playerController.m_MouseLook.inMenu = false;
     }
 
+    public void CloseTextPopups()
+    {
+        openingScreen.SetActive(false);
+        endingTxt.SetActive(false);
+        insufficentPyramidsTxt.SetActive(false);
+    }
+
     // Update is called once per frame
     public void Update()
     {
         if ((Input.GetKeyDown(KeyCode.Mouse0)))
         {
-            openingScreen.SetActive(false);
+            CloseTextPopups();
         }
         if ((Input.GetKeyDown(KeyCode.Escape)))
         {
+            CloseTextPopups();
             if (returnMenu.activeInHierarchy)
             {
                 returnMenu.SetActive(false);
