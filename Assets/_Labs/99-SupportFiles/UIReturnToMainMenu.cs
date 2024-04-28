@@ -7,7 +7,7 @@ public class UIReturnToMainMenu : MonoBehaviour
 {
     public GameObject openingScreen;
     public GameObject returnMenu;
-
+    public FirstPersonController playerController;
 
     public void Awake()
     {
@@ -26,6 +26,7 @@ public class UIReturnToMainMenu : MonoBehaviour
 
     public void CloseReturnMenu()
     {
+        Cursor.visible = !Cursor.visible;
         returnMenu.SetActive(false);
     }
 
@@ -39,7 +40,6 @@ public class UIReturnToMainMenu : MonoBehaviour
         }
         if ((Input.GetKeyDown(KeyCode.Escape)))
         {
-
             if (returnMenu.activeInHierarchy)
             {
                 returnMenu.SetActive(false);

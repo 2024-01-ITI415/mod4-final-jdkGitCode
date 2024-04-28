@@ -26,16 +26,12 @@ public class Collectable : MonoBehaviour
 
             animator.Play(pickupAnimation.name);
             particles.SetActive(true);
-
-            while (true)
-            {
-                if (!animator.GetCurrentAnimatorStateInfo(0).IsName(pickupAnimation.name))
-                {
-                    particles.SetActive(false);
-                    this.gameObject.SetActive(false);
-                    break;
-                }
-            }
         }
+    }
+
+    public void FinishPickingUp()
+    {
+        particles.SetActive(false);
+        this.gameObject.SetActive(false);
     }
 }
