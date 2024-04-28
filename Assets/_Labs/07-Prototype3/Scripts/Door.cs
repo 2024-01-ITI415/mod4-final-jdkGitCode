@@ -5,29 +5,28 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     public Animator doorAnimator;
-    public bool doorState;
-
-    private void Start()
-    {
-        doorState = false;
-    }
+    public bool inProgress;
 
     public void SwitchDoorState()
     {
-        Debug.Log(doorAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime);
 
-        if (doorAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0)
+        if (!inProgress)
         {
-            if (!doorState)
+            inProgress = true;
+
+            if (!doorAnimator.GetBool("DoorState"))
             {
-                doorState = !doorState;
-                doorAnimator.Play("OpenDoor");
+                doorAnimator.SetBool("DoorState", true);
             }
             else
             {
-                doorState = !doorState;
-                doorAnimator.Play("CloseDoor");
+                doorAnimator.SetBool("DoorState", false);
             }
         }
+    }
+
+    public void AnimationDone()
+    {
+        inProgress = false;
     }
 }
