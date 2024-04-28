@@ -8,9 +8,6 @@ public class UIReturnToMainMenu : MonoBehaviour
     public GameObject openingScreen;
     public GameObject returnMenu;
 
-    public FirstPersonController playerController;
-    public CharacterController characterController;
-
 
     public void Awake()
     {
@@ -29,9 +26,6 @@ public class UIReturnToMainMenu : MonoBehaviour
 
     public void CloseReturnMenu()
     {
-        playerController.enabled = !playerController.enabled;
-        characterController.enabled = !characterController.enabled;
-        Cursor.visible = false;
         returnMenu.SetActive(false);
     }
 
@@ -45,18 +39,14 @@ public class UIReturnToMainMenu : MonoBehaviour
         }
         if ((Input.GetKeyDown(KeyCode.Escape)))
         {
-            playerController.enabled = !playerController.enabled;
-            characterController.enabled = !characterController.enabled;
 
             if (returnMenu.activeInHierarchy)
             {
                 returnMenu.SetActive(false);
-                Cursor.visible = false;
             }
             else
             {
                 returnMenu.SetActive(true);
-                Cursor.visible = true;
             }
         }
     }
