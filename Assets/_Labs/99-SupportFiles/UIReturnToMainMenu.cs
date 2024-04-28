@@ -26,8 +26,8 @@ public class UIReturnToMainMenu : MonoBehaviour
 
     public void CloseReturnMenu()
     {
-        Cursor.visible = !Cursor.visible;
         returnMenu.SetActive(false);
+        playerController.m_MouseLook.inMenu = false;
     }
 
     // Update is called once per frame
@@ -36,17 +36,18 @@ public class UIReturnToMainMenu : MonoBehaviour
         if ((Input.GetKeyDown(KeyCode.Mouse0)))
         {
             openingScreen.SetActive(false);
-
         }
         if ((Input.GetKeyDown(KeyCode.Escape)))
         {
             if (returnMenu.activeInHierarchy)
             {
                 returnMenu.SetActive(false);
+                playerController.m_MouseLook.inMenu = false;
             }
             else
             {
                 returnMenu.SetActive(true);
+                playerController.m_MouseLook.inMenu = true;
             }
         }
     }
